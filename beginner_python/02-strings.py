@@ -13,19 +13,22 @@ you = 'Subscriber'
 me = "Caleb" #reset to normal
 
 #passing multiple arguments to print
-print(me, you)
+print(me, you) #output: Caleb Subscriber
 
 #double quotes and single quotes work the same way with the exception of working with quotes inside.
 #here are some examples:
 
 single_quotes = 'She said "Hi"'
-print(single_quotes)
+print(single_quotes) #output: She said "Hi"
 
 double_quotes = "She said \"Hi\""
-print(double_quotes)
+print(double_quotes) #output: She said "Hi" 
 
 single_quotes = 'I\'m learning!'
-print(single_quotes)
+print(single_quotes) #output: I'm learning!
+#notice we have to escape the same quote as the surrounding quote
+#this is the same as:
+#single_quotes = 'I\'m learning!' #output: I'm learning
 
 double_quotes = "I'm learning!"
 print(double_quotes)
@@ -36,10 +39,18 @@ print(double_quotes)
 #https://docs.python.org/2.0/ref/strings.html
 
 #Notice that if you want to print \ you must put two
-print("\\")
+print("\\") #output: \
+#This is because \ is an escape character.
+#If you want to print a single quote, you can use double quotes to surround it
+#or escape it with a backslash
+#If you want to print a double quote, you can use single quotes to surround it
 
 #you can also prefix with r which will make a raw string (ignoring escapes except same quote)
 print(r'as raw as I\'ve ever seen. \/\/ () \/\/. \t' ) #only \' is escaped
+#output: as raw as I've ever seen. \/\/ () \/\/. \t
+#This is useful for regex and file paths.
+#https://docs.python.org/3/reference/lexical_analysis.html#string-literal
+#https://docs.python.org/3/reference/lexical_analysis.html#string-and-bytes-literals
 
 
 
@@ -139,16 +150,16 @@ print(new)
 
 #Python is my favorite!
 fav_language = "Python " + cant_change[5:]
-print(fav_language)
+print(fav_language) #output: Python is my favorite!
 
 #Java is actually coffee
 coffee = cant_change[:8] + "actually coffee" #grab first 7 characters (index 8 not included)
-print(coffee)
+print(coffee) #output: Java is actually coffee
 
 #operations that appear to change string actually replace:
 #Java is actually coffee (contrary to popular belief).
 coffee += " (contrary to popular belief)."
-print(coffee)
+print(coffee) #output: Java is actually coffee (contrary to popular belief).
 
 ########## GETTING STRING LENGTH ##########
 
@@ -156,7 +167,7 @@ print(coffee)
 #similar to how we invoke print to do something for us (output to console)
 #we can invoke len to count for us:
 
-print(len(coffee))
+print(len(coffee)) #output: 43
 
 #for those from other languages...
 #notice we do not say coffee.len()
@@ -174,7 +185,7 @@ print("len(name)", len(name)) #length is 5
 #How to convert a number to a string
 length = len(name)
 
-print("Length is " + str(length))
+print("Length is " + str(length)) #output: Length is 5
 
 #this works however sometimes you just need one combined string instead of components.
 #when we use a comma, we are passing in data as separate arguments. 
@@ -187,11 +198,12 @@ print("length is ", length)
 #BAD
 msg = "length is", len(name)
 print(msg) #NOT WHAT WE WANTED!
+#output: length is 5 ^ not what we wanted do below instead
 
 #GOOD
 length = len(name)
 msg = "length is " + str(length)
-print(msg)
+print(msg) #output: length is 5
 
 #EVEN BETTER
 #We can also nest function calls:
